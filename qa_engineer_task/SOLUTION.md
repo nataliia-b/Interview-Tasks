@@ -1,4 +1,4 @@
-### Task-1 -DONE
+### Task-1
 
 1. There is a sample project https://github.com/dataengi/crm-seed with documentation and ready to deploy using docker. Try
 run it using "Try in PWD" in cloud or locally according to instruction "Running in presentation mode".
@@ -6,6 +6,14 @@ run it using "Try in PWD" in cloud or locally according to instruction "Running 
 - git clone https://github.com/dataengi/crm-seed.git 
 - docker-compose up
 - listening on localhost port 80
+
+alternate in home
+- install Docker for Windows
+- click Tre in PWD button
+- Add new instance
+- git clone https://github.com/dataengi/crm-seed.git
+- docker-compose up
+- click 80 button
 
 
 2. Read project general documentation https://github.com/dataengi/crm-seed/wiki
@@ -22,46 +30,47 @@ run it using "Try in PWD" in cloud or locally according to instruction "Running 
 - password: admin
 
 
-### Task-2 - NOT COMPLETE
+### Task-2
 
-При введенні даних контактів система
-- ніде не вказано, що * червона це обовязкові поля для заповення
-- якщо не заповнені обовязкові поля, кнопка Submit не активна, але користувачу не підказують чому саме
-- допускає повне дублювання контактів
-- однозначно контакт визначається лише за номером Id, який встановлюється автоматично
-- при введенні даних висвітлюються дані, які були введені раніше в інших контактах
-- є обмеження на довжину полів у формі, але не критичне
-- неможливо змінити розміщення вікна Edit contact на екрані
-- великі і маленькі літери рівносильні
-- Email перевіряється на відповідність згідно маски 
-- Phone не передбачає міжнародного запису (+380...)
-- при введенні Phone не допускаються ніякі інші симовли крім цифр
-- довжина телефону коливається 10-12 цифр
-- дозволяє додавати декілька Email, Phone одного типу (наприклад, декілька Work)
-- Language дозволяє задавати декілька 
-- Company дозволяє задавати декілька 
-- один і той самий контакт може бути доданий в різні групи одночасно
-- один і той самий контакт не може бути одночасно заданий декілька разів в одну і туж групу
-- немає ніякої різниці у кнопці Фільтр коли він увімкнений чи вимкнений
+1. Write user story for Customer contact add according to Agile best practice
+	Як Менеджер компанії, я хочу мати можливість підтягувати переписку з клієнтами зі своєї робочої електронної скриньки
 
+2. Write 2 use cases for Customer contact add according to Agile best practice
 
-1. User story
+2.1. 
+use case title -  Manager company add new contact
+goal -            Create new contact
+actor/user -      Manager company/Manager, system CRM
+preconditions -   Log in CRM
+standard path or main success scenario 
+        1. Go to Contacts tab
+        2. Click button +Add contact
+        3. Fill out New Contact form Name, Email (Main),Phone (Main). It's required fields. 
+        4. Click the Submit button
+        5. After show pop-up window "Create contact"
+post conditions: on Contacts tab show new contact 
 
-Як Користувач системи, я хочу мати можливість  підтягнути  контакти з своєї робочої електронної скриньки
+2.2.
+use case title -  Manager company edit contact (add Company)
+goal -            Edit contact
+actor/user -      Manager company/Manager, system CRM
+preconditions -   Log in CRM, go to Contacts tab
+standard path or main success scenario 
+        1. Click on a contact's name
+        2. In the bottom right corner, click Edit.
+        3. Fill Company
+        4. Click the Save button
+        5. After show pop-up window "Update contact"
+alternate paths
+        1. Near necessary Contact click on Edit button.
+        2. Fill Company
+        3. Click the Save button
+        4. After show pop-up window "Update contact"
+post conditions: on Contacts tab show update contact
 
-2. Use case
-
-2.1. Введення контактів вручну
-
-СЦЕНАРІЙ
-1. Зайти на вкладку Contacts
-2. Натиснути кнопку Add contacts
-3. Заповнити форму New contact
-- при введенні даних в Name, Phone, Email, які дублюються в інших контактах, вивести відповідне повідомлення 
-- право вибору, вносити клієнта з даними, які дублюються чи ні, залишити за Користувачем
-4. Підтвердити дії Користувача відповідною кнопкою Close or Submit
-
-РЕЗУЛЬТАТ
-Внесення даних про нового клієнта
-Попередження Користувача про дублювання даних у різних клієнтів
+3. Write 3 requirements for Customer contact add
+3.1. Значення в полі Email не повинно розпочинатися із порожнього символа (пропуску)
+Повинно містити знак @, і доменне імя
+3.2. Значення в полі Phone не повинно розпочинатися із порожнього символа, може містити лише цифри, дожиною 10-12 символів
+3.3. Значення в полі Name може містити будь-який набір символів довжиною до 50 симовлів
 
